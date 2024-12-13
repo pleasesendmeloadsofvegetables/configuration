@@ -19,6 +19,7 @@
   #:use-module (gnu packages xdisorg)
   #:use-module (gnu packages terminals)
   #:use-module (gnu packages linux)
+  #:use-module (gnu packages graphviz)
   ;; Non-GNU Packages
   #:use-module (nongnu packages nvidia)
   #:use-module (nongnu packages mozilla)
@@ -34,6 +35,7 @@
                        hyprcursor
                        hy3
                        kitty
+                       graphviz
                        helix)))
   (services
    (list (service home-channels-config-service-type)
