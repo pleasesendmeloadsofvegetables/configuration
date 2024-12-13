@@ -1,6 +1,7 @@
 (define-module (machines eocene machine)
   #:use-module (machines base-machine machine)
   #:use-module (machines eocene file-systems)
+
   ;; GNU System
   #:use-module (gnu system)
   #:use-module (gnu system keyboard)
