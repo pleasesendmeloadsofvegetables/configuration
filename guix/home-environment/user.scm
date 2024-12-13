@@ -19,12 +19,13 @@
   #:use-module (gnu packages xdisorg)
   #:use-module (gnu packages terminals)
   #:use-module (gnu packages linux)
-  #:use-module (gnu packages graphviz)
   ;; Non-GNU Packages
   #:use-module (nongnu packages nvidia)
   #:use-module (nongnu packages mozilla)
+  #:use-module (nongnu packages game-client)
   ;; Saayix
-  #:use-module (saayix packages text-editors))
+  #:use-module (saayix packages text-editors)
+  #:use-module (saayix packages lsp))
 
 (home-environment
   (packages (map replace-mesa
@@ -35,8 +36,9 @@
                        hyprcursor
                        hy3
                        kitty
-                       graphviz
-                       helix)))
+                       steam-nvidia
+                       helix
+                       guile-lsp-server)))
   (services
    (list (service home-channels-config-service-type)
          (service home-bash-service-type)
