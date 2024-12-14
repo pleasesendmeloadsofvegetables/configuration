@@ -12,6 +12,7 @@
   #:use-module (gnu home services sound)
   #:use-module (gnu home services desktop)
   #:use-module (gnu home services shepherd)
+  #:use-module (gnu home services sway)
   ;; GNU Packages
   #:use-module (gnu packages version-control)
   #:use-module (gnu packages curl)
@@ -24,8 +25,7 @@
   #:use-module (nongnu packages mozilla)
   #:use-module (nongnu packages game-client)
   ;; Saayix
-  #:use-module (saayix packages text-editors)
-  #:use-module (saayix packages lsp))
+  #:use-module (saayix packages text-editors))
 
 (home-environment
   (packages (map replace-mesa
@@ -37,8 +37,7 @@
                        hy3
                        kitty
                        steam-nvidia
-                       helix
-                       guile-lsp-server)))
+                       helix)))
   (services
    (list (service home-channels-config-service-type)
          (service home-bash-service-type)
@@ -48,6 +47,11 @@
          (service home-pipewire-service-type
                   (home-pipewire-configuration (wireplumber
                                                 wireplumber-minimal)))
+
+         (service home-sway-service-type
+                  (sway-configuration (packages (map replace-mesa
+                                                     (list sway swaylock
+                                                           swayidle swaybg)))))
 
          (service home-shepherd-service-type)
 
