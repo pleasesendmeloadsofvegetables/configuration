@@ -1,0 +1,4 @@
+# Only have one daemon process that all other windows connect to, to lower resource usage and startup time.
+gtk-single-instance = true
+# Do not kill the daemon if all windows close.
+quit-after-last-window-closed = false
